@@ -1,0 +1,2 @@
+ls | entr pdflatex -halt-on-error space.tex
+convert -density 300 plane.pdf -quality 90 plane.png
