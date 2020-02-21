@@ -1,0 +1,30 @@
+%https://tex.stackexchange.com/questions/126019/drawing-a-plane-in-3d-space
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+
+\begin{document}
+
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[scale=3,tdplot_main_coords]
+    \draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+    \def\x{.5}
+    \draw[thin] (0,0,0) -- ({1.2*\x},{sqrt(3)*1.2*\x},0) node[below] {};
+    \filldraw[
+        draw=red,%
+        fill=red!20,%
+    ]          (0,0,0)
+            -- (\x,{sqrt(3)*\x},0)
+            -- (\x,{sqrt(3)*\x},1)
+            -- (0,0,1)
+            -- cycle;
+    \draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+    \draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+    \draw[blue,thick,->] (0,0,0) -- ({-sqrt(3)*0.3},{1*0.3},0.05)
+	node[anchor=north east,below]{$a$};
+    \draw[blue,thick,->] (0,0,0) -- ({-sqrt(3)*0.3},{1*0.3},0.6)
+	node[anchor=north east,below]{$b$};
+\end{tikzpicture}
+
+\end{document}
