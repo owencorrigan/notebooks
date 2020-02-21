@@ -1,0 +1,28 @@
+\documentclass{standalone}
+\usepackage[centertags]{amsmath}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{newlfont}
+\usepackage{enumerate}
+\usepackage{makeidx}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds,intersections}
+\begin{document}
+        \begin{tikzpicture}
+        \draw[thick,latex-latex] (-4,0) -- (4,0)node[right]{$x$};
+        \draw[thick,latex-latex] (0,-4) -- (0,4)node[above]{$y$};
+        \foreach \x in {-4,-3,-2,-1,1,2,3,4}{
+            \node[fill,circle,inner sep=1.5pt,label=below:$\x$] at (\x,0) {};
+            \node[fill,circle,inner sep=1.5pt,label=left:$\x$] at (0,\x) {};
+        }
+        \draw[red,thick,->] (0,0) -- (2,2)
+        node[pos=0.4,black,above,sloped] {subspace};
+	\draw[red,thick,dashed] (-4,-4) -- (4,4);
+        \draw[red,thick,->] (-3,0) -- (-1,2)
+        node[pos=0.4,black,above,sloped] {affine plane};
+	\draw[red,thick,dashed] (-4,-1) -- (1,4);
+
+        \end{tikzpicture}
+\end{document}
